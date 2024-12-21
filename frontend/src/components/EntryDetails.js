@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import '../App.css';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import "../App.css";
 
 const EntryDetails = () => {
   const [entry, setEntry] = useState(null);
@@ -11,15 +11,19 @@ const EntryDetails = () => {
   useEffect(() => {
     const fetchEntryDetails = async () => {
       try {
-        const allEntriesResponse = await fetch('http://localhost:5000/entries');
+        // Fetch all entries for navigation
+        const allEntriesResponse = await fetch("http://localhost:5000/entries");
         const allEntries = await allEntriesResponse.json();
         setEntries(allEntries);
 
-        const entryResponse = await fetch(`http://localhost:5000/entries/${id}`);
+        // Fetch a single entry by its MongoDB ObjectId
+        const entryResponse = await fetch(
+          `http://localhost:5000/entries/${id}`
+        );
         const entryData = await entryResponse.json();
         setEntry(entryData);
       } catch (error) {
-        console.error('Error fetching entry details:', error);
+        console.error("Error fetching entry details:", error);
       }
     };
 
@@ -27,17 +31,17 @@ const EntryDetails = () => {
   }, [id]);
 
   const handlePreviousEntry = () => {
-    const currentIndex = entries.findIndex(e => e.id === parseInt(id));
+    const currentIndex = entries.findIndex((e) => e._id === id);
     if (currentIndex > 0) {
-      const prevEntryId = entries[currentIndex - 1].id;
+      const prevEntryId = entries[currentIndex - 1]._id;
       navigate(`/entry/${prevEntryId}`);
     }
   };
 
   const handleNextEntry = () => {
-    const currentIndex = entries.findIndex(e => e.id === parseInt(id));
+    const currentIndex = entries.findIndex((e) => e._id === id);
     if (currentIndex < entries.length - 1) {
-      const nextEntryId = entries[currentIndex + 1].id;
+      const nextEntryId = entries[currentIndex + 1]._id;
       navigate(`/entry/${nextEntryId}`);
     }
   };
@@ -49,14 +53,16 @@ const EntryDetails = () => {
       <div className="navigation-buttons">
         <button
           onClick={handlePreviousEntry}
-          disabled={entries.findIndex(e => e.id === parseInt(id)) === 0}
+          disabled={entries.findIndex((e) => e._id === id) === 0}
           className="nav-button"
         >
           ← Previous
         </button>
         <button
           onClick={handleNextEntry}
-          disabled={entries.findIndex(e => e.id === parseInt(id)) === entries.length - 1}
+          disabled={
+            entries.findIndex((e) => e._id === id) === entries.length - 1
+          }
           className="nav-button"
         >
           Next →
@@ -66,10 +72,18 @@ const EntryDetails = () => {
       <div className="entry-details-card">
         <h1 className="entry-title">{entry.title}</h1>
         <div className="entry-meta-info">
-          <p><strong>Date:</strong> {entry.date}</p>
-          <p><strong>Time:</strong> {entry.time}</p>
-          <p><strong>Category:</strong> {entry.category}</p>
-          <p><strong>Location:</strong> {entry.location}</p>
+          <p>
+            <strong>Date:</strong> {entry.date}
+          </p>
+          <p>
+            <strong>Time:</strong> {entry.time}
+          </p>
+          <p>
+            <strong>Category:</strong> {entry.category}
+          </p>
+          <p>
+            <strong>Location:</strong> {entry.location}
+          </p>
         </div>
 
         <div className="entry-description">
@@ -78,8 +92,12 @@ const EntryDetails = () => {
         </div>
 
         <div className="entry-additional-info">
-          <p><strong>Tags:</strong> {entry.tags || 'No tags'}</p>
-          <p><strong>Persons Involved:</strong> {entry.personsInvolved}</p>
+          <p>
+            <strong>Tags:</strong> {entry.tags || "No tags"}
+          </p>
+          <p>
+            <strong>Persons Involved:</strong> {entry.persons_involved}
+          </p>
         </div>
 
         {entry.media_files && entry.media_files.length > 0 && (
@@ -88,14 +106,21 @@ const EntryDetails = () => {
             <div className="media-gallery">
               {entry.media_files.map((file, index) => (
                 <div key={index} className="media-item">
-                  {file.endsWith('.mp4') || file.endsWith('.mov') ? (
+                  {file.endsWith(".mp4") || file.endsWith(".mov") ? (
                     <video controls className="media-video">
-                      <source src={`http://localhost:5000/media/${file.split('/').pop()}`} type="video/mp4" />
+                      <source
+                        src={`http://localhost:5000/media/${file
+                          .split("/")
+                          .pop()}`}
+                        type="video/mp4"
+                      />
                       Your browser does not support the video tag.
                     </video>
                   ) : (
                     <img
-                      src={`http://localhost:5000/media/${file.split('/').pop()}`}
+                      src={`http://localhost:5000/media/${file
+                        .split("/")
+                        .pop()}`}
                       alt={`Media ${index + 1}`}
                       className="media-image"
                     />

@@ -1,0 +1,555 @@
+/* Body styling */
+body, html {
+  font-family: 'Roboto', sans-serif;
+  background-color: #e8e8e8;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/f773ef134986681.61dfaf40b10bc.png");
+  background-repeat: no-repeat; /* Prevents the image from tiling */
+  background-position: center; /* Centers the image */
+  background-size: 50% 50%; /* Keeps the image at its original size */
+  background-position-x: center;
+  background-position-y: center;
+}
+
+
+/* Header styling */
+.header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .nav-button {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #0056b3;
+  font-weight: bold;
+}
+
+.header .nav-button:hover {
+  background-color: #004494;
+}
+
+.header .button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Centered form styling */
+.styled-form {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+/* Input field styling */
+.styled-form input,
+.styled-form select,
+.styled-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.styled-form input:focus,
+.styled-form select:focus,
+.styled-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  transform: scale(1.03);
+}
+
+/* Submit and filter buttons styling */
+.submit-button,
+.filter-button,
+.export-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover,
+.filter-button:hover,
+.export-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Navigation buttons styling */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.navigation-buttons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navigation-buttons button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Intro image below buttons */
+.intro-image {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Table styling */
+.crime-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.crime-table th,
+.crime-table td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: left;
+}
+
+.crime-table th {
+  background-color: #e9ecef;
+  color: #4f5357;
+  font-weight: bold;
+}
+
+.crime-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .styled-form {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Container Styling */
+.filter-container {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Form Header */
+.filter-container h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.form-field {
+  flex: 1 1 calc(50% - 20px); /* Two fields per row */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.filter-form label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Input and Select Styling */
+.styled-input,
+.styled-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.styled-input:focus,
+.styled-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Filter Button */
+.filter-button {
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.filter-button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Table Styling */
+.crime-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.crime-table thead {
+  background: #007bff;
+  color: #fff;
+}
+
+.crime-table th,
+.crime-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.crime-table tbody tr:nth-child(odd) {
+  background: #f2f2f2;
+}
+
+.crime-table tbody tr:hover {
+  background: #e9f5ff;
+}
+
+/* Export Button */
+.export-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.export-button:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .form-field {
+    flex: 1 1 100%; /* Full width for small screens */
+  }
+}
+
+
+
+/* General Container Styling */
+.content-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: #f9f9f9;
+}
+
+/* Card Styling */
+.card {
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Header */
+.card h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form Styling */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-field label {
+  font-weight: bold;
+  color: #555;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+textarea {
+  resize: none;
+}
+
+/* Submit Button */
+.submit-button {
+  padding: 14px;
+  font-size: 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Table Styling */
+.crime-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.crime-table thead {
+  background: #007bff;
+  color: white;
+}
+
+.crime-table th,
+.crime-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 14px;
+}
+
+.crime-table th {
+  text-transform: uppercase;
+}
+
+.crime-table tbody tr:hover {
+  background: rgba(0, 123, 255, 0.1);
+}
+
+.crime-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.crime-table a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.crime-table a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .crime-table th,
+  .crime-table td {
+    font-size: 12px;
+  }
+
+  .form-container {
+    gap: 15px;
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .submit-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+
+.entry-details-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-button {
+  background-color: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #2c5282;
+}
+
+.nav-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.entry-details-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.entry-title {
+  font-size: 24px;
+  color: #2b6cb0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.entry-meta-info p,
+.entry-additional-info p {
+  font-size: 14px;
+  color: #333;
+}
+
+.entry-description h2 {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #000000;
+}
+
+.entry-description p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.entry-media {
+  margin-top: 20px;
+}
+
+.media-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.media-item {
+  position: relative;
+}
+
+.media-image {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.media-video {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  margin-top: 50px;
+}
